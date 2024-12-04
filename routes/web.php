@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\Admin\ModulController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,5 @@ Route::get('/modul',[ModulController::class,'index']);
 Route::get('/create_modul',[ModulController::class,'create_modul']);
 Route::get('/materi',[MateriController::class,'index']);
 Route::get('/create_materi',[MateriController::class,'create_materi']);
+Route::get('/',[HomeController::class,'index']);
+Route::get('/kelas',[HomeController::class,'kelas']);
