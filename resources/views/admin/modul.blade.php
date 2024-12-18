@@ -1,40 +1,45 @@
 @extends('template/admin')
 @section('title','Halaman Modul')
 @section('page_name','Halaman Modul')
-@section('data_name','Data Kategori')
+@section('data_name','Data Modul')
 @section('content')
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Data Modul</h3>
-        <a href="{{url('/create_modul')}}" class="btn btn-success float-right"><i class="fa-solid fa-plus"></i></a>
+        <a href="{{url('/create_modul')}}" class="btn btn-success float-right"><i class="fa-solid fa-plus"></i> Tambah Modul</a>
     </div>
-        <div class="card-body">
-                <table class="table table-bordered table-hover" id="example2">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nama Modul</th>
-                            <th>Aksi</th>
-                        </tr>
-                        <tbody>
-                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
-                                    <a href="" class="btn btn-sm btn-primary">EDIT</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                </form>
-                            </td>
-                         </tr>
-                        </tbody>
-                    </thead>
-                </table>
-            {{-- </div> --}}
-        </div>
-    
+    <div class="card-body">
+       
+        <table class="table table-bordered table-hover" id="example2">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama Modul</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($modul as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->nama_modul }}</td>
+                        <td>
+                            <!-- Tombol Edit -->
+                            <a href="{{ url('edit_modul/' . $item->id_modul) }}" class="btn btn-sm btn-primary">EDIT</a>
+
+                            <!-- Tombol Hapus -->
+                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ url('delete_modul/' . $item->id_modul) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
+
 @endsection

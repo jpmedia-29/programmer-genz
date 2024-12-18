@@ -169,6 +169,15 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{url('blog')}}" class="nav-link">
+              <i class="fa-brands fa-blogger nav-icon"></i>
+              <p>
+                Blog
+              </p>
+            </a>
+          </li>
   
           <li class="nav-item">
             <a href="{{url('admin')}}" class="nav-link">
