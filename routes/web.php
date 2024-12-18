@@ -28,3 +28,6 @@ Route::get('/modul',[ModulController::class,'index']);
 Route::get('/create_modul',[ModulController::class,'create_modul']);
 Route::get('/materi',[MateriController::class,'index']);
 Route::get('/create_materi',[MateriController::class,'create_materi']);
+Route::post('save_profil',[ProfilController::class,'save_profil']);
+Route::post('save_kategori',[KategoriController::class,'save_kategori']);
+Route::delete('delete_kategori/{id}',[KategoriController::class,'delete']);
