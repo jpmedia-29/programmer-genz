@@ -174,7 +174,7 @@
             <a href="{{url('admin')}}" class="nav-link">
               <i class="fa-solid fa-user-tie nav-icon"></i>
               <p>
-                User
+                Admin
               </p>
             </a>
           </li>
