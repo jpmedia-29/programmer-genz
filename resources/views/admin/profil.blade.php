@@ -15,7 +15,6 @@
                 <label for="nama_instansi">Nama Instansi</label>
                 <input type="text" name="nama_instansi" value="" class="form-control" required>
             </div> 
-            
             <div class="form-group">
                 <label for="logo">Logo</label>
                 <input type="file" name="logo" class="form-control" >
@@ -30,11 +29,10 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" name="email" value="" class="form-control" required>
+                <input type="email" name="email" value="" class="form-control" required>
             </div> 
             <button type="submit" class="btn btn-primary float-right">Simpan</button>
          </form>
         </div>
-    
 </div>
 @endsection
