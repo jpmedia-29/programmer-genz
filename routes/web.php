@@ -47,3 +47,4 @@ Route::post('update_blog/{id}', [BlogController::class, 'update']);
 Route::delete('delete_blog/{id}',[BlogController::class, 'delete_blog']);
 Route::get('edit_materi/{id}',[MateriController::class,'edit']);
 Route::post('update_materi/{id}', [MateriController::class, 'update'])->name('update_materi');
+Route::post('save_profil',[ProfilController::class,'save_profil']);
