@@ -29,30 +29,32 @@ class BlogController extends Controller
 
     public function save(Request $request)
     {
-        
-        $validated = $request->validate([
-            'id_modul' => 'required|exists:kategori,id_kategori', 
+         
+          $validated = $request->validate([
+            'id_blog' => 'required|exists:kategori,id_kategori',
             'judul_Blog' => 'required|string|max:255',
-            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048', 
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
             'isi_blog' => 'required|string',
         ]);
 
-        
-        if ($request->hasFile('foto')) {
-
-            $fotoPath = $request->file('foto')->store('public/blogs');
-        }
-
        
         $blog = new Blog();
-        $blog->id_modul = $request->id_modul;
+        $blog->id_kategori = $request->id_blog;
         $blog->judul_blog = $request->judul_Blog;
-        $blog->foto = $fotoPath ?? null;  
         $blog->isi_blog = $request->isi_blog;
+
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $fotoName = time() . '-' . $foto->getClientOriginalName();
+            $foto->storeAs('public/blogs', $fotoName);
+            $blog->foto = 'blogs/' . $fotoName; 
+        }
+
+   
         $blog->save();
 
         
-        return redirect()->route('admin.blog.index')->with('success', 'Blog berhasil disimpan!');
+        return redirect('blog')->with('success', 'Blog berhasil disimpan!');
     }
 
     public function edit($id)
@@ -95,10 +97,9 @@ class BlogController extends Controller
 
     public function delete_blog($id)
     {
-        // $id = $request->id;
         $modul = Blog::findOrFail($id);
         $modul->delete();
-        return redirect('modul')->with('success', 'Blog berhasil dihapus!');
+        return redirect('blog')->with('success', 'Blog berhasil dihapus!');
     }
 
     

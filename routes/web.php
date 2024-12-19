@@ -48,3 +48,8 @@ Route::delete('delete_blog/{id}',[BlogController::class, 'delete_blog']);
 Route::get('edit_materi/{id}',[MateriController::class,'edit']);
 Route::post('update_materi/{id}', [MateriController::class, 'update'])->name('update_materi');
 Route::post('save_profil',[ProfilController::class,'save_profil']);
+Route::post('save_kategori',[KategoriController::class,'save_kategori']);
+Route::delete('delete_kategori/{id}',[KategoriController::class,'delete']);
+Route::get('v_about',[HomeController::class,'about']);
+Route::get('v_blog',[HomeController::class,'blog']);
+Route::get('v_kelas',[HomeController::class,'kelas']);

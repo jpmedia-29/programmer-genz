@@ -37,13 +37,13 @@
                   <a class="nav-link" href="#">Beranda<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Kelas</a>
+                  <a class="nav-link" href="{{url('v_kelas')}}">Kelas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Blog</a>
+                  <a class="nav-link" href="{{url('v_blog')}}">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
+                  <a class="nav-link" href="{{url('v_about')}}">About</a>
                 </li>
               
               </ul>

@@ -13,23 +13,33 @@ background-repeat: no-repeat;">
 </div>
 <div class="container">
     <div class="row">
-
-        @foreach ($modul as $item)
+        <div class="col-md-8">
+        @foreach ($blog as $item)
             
-       
+     
         <div class="col-md-4">
         <div class="card mt-4 mb-4" style="width: 18rem; float: left; margin: 4px;">
-            <img src="gambar/laravel.webp" class="card-img-top" alt="">
+            <img src="{{ asset('storage/'.$item->foto)}}" class="card-img-top" alt="">
             <div class="card-body">
-                <h5 class="card-title">{{$item->nama_modul}}</h5>
+                <h5 class="card-title">{{$item->judul_blog}}</h5>
 
-                <a href="#" class="btn btn-danger">Ikuti Kelas</a>
+                <a href="#" class="btn btn-danger">Selengkapnya</a>
             </div>
         </div>
         </div>
 
         @endforeach
+        </div>
+        <div class="col-md-4">
+            <label for="">Kategori</label>
+            @foreach ($kategori as $item)
+                <ul>
+                    <li><a href="">{{$item->nama_kategori}}</a></li>
+                </ul>
+            @endforeach
+        </div>
     
+        
 
     </div>
     </div>
