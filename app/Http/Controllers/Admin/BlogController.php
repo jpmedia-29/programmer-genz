@@ -28,40 +28,37 @@ class BlogController extends Controller
     }
 
     public function save(Request $request)
-    {
-         
-          $validated = $request->validate([
+    {   
+      
+        $request->validate([
             'id_blog' => 'required|exists:kategori,id_kategori',
             'judul_Blog' => 'required|string|max:255',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif', 
             'isi_blog' => 'required|string',
         ]);
 
-       
         $blog = new Blog();
-        $blog->id_kategori = $request->id_blog;
-        $blog->judul_blog = $request->judul_Blog;
-        $blog->isi_blog = $request->isi_blog;
-
+        $blog->id_kategori = $request->input('id_blog');
+        $blog->judul_blog = $request->input('judul_Blog');
+        $blog->isi_blog = $request->input('isi_blog');
         if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-            $fotoName = time() . '-' . $foto->getClientOriginalName();
-            $foto->storeAs('public/blogs', $fotoName);
-            $blog->foto = 'blogs/' . $fotoName; 
+            $fotoPath = $request->file('foto')->store('uploads/blog', 'public');
+            $blog->foto = $fotoPath;
         }
 
-   
         $blog->save();
-
-        
-        return redirect('blog')->with('success', 'Blog berhasil disimpan!');
+        return redirect('/blog')->with('success', 'Blog berhasil disimpan.');
     }
 
-    public function edit($id)
+
+    public function edit_blog($id)
     {
-        $blog = Blog::findOrFail();
-        return view('admin/blog');
+        $blog = Blog::findOrFail($id); 
+        $kategori = Kategori::all(); 
+
+        return view('admin/edit_blog', compact('blog', 'kategori'));
     }
+
 
     public function update(Request $request, $id)
     {
@@ -101,6 +98,42 @@ class BlogController extends Controller
         $modul->delete();
         return redirect('blog')->with('success', 'Blog berhasil dihapus!');
     }
+
+
+    public function update_blog(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'id_blog' => 'required|exists:kategori,id_kategori',
+            'judul_Blog' => 'required|string|max:255',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'isi_blog' => 'required|string',
+        ]);
+
+       
+        $blog = Blog::findOrFail($id);
+
+        $blog->id_kategori = $request->input('id_blog');
+        $blog->judul_blog = $request->input('judul_Blog');
+        $blog->isi_blog = $request->input('isi_blog');
+
+     
+        if ($request->hasFile('foto')) {
+     
+            if ($blog->foto && \Storage::exists('public/' . $blog->foto)) {
+                \Storage::delete('public/' . $blog->foto);
+            }
+
+            // Simpan foto baru
+            $fotoPath = $request->file('foto')->store('uploads/blog', 'public');
+            $blog->foto = $fotoPath;
+        }
+
+        $blog->save();
+
+        return redirect('/blog')->with('success', 'Blog berhasil diperbarui.');
+    }
+
 
     
     

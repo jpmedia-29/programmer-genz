@@ -13,31 +13,32 @@
             @csrf
             <div class="form-group">
                 <label for="nama_profil">Nama Profil</label>
-                <input type="text" name="nama_profil" value="{{ old('nama_profil', $profil->nama_profil ?? '') }}" class="form-control" required>
+                <input type="text" name="nama_profil" value="{{ old('nama_profil', $profil->nama_profil ?? '') }}" class="form-control"  required oninvalid="this.setCustomValidity('Data tidak boleh kosong')" oninput="this.setCustomValidity('')">
             </div> 
 
             <div class="form-group">
                 <label for="logo">Logo</label>
-                <!-- Tampilkan logo jika sudah ada -->
+             
                 @if($profil && $profil->logo)
-                    <img src="{{ asset('storage/' . $profil->logo) }}" alt="Logo" width="100">
+                    <img src="{{ asset('storage/uploads/profil/' . basename($profil->logo)) }}" alt="Logo" width="100">
                 @endif
+            
                 <input type="file" name="logo" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <textarea name="alamat" class="form-control" cols="30" rows="10">{{ old('alamat', $profil->alamat ?? '') }}</textarea>
+                <textarea name="alamat" class="form-control" cols="30" rows="10" required oninvalid="this.setCustomValidity('Data tidak boleh kosong')" oninput="this.setCustomValidity('')">{{ old('alamat', $profil->alamat ?? '') }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="no_telp">No Telp</label>
-                <input type="number" name="no_telp" value="{{ old('no_telp', $profil->no_telp ?? '') }}" class="form-control" required>
+                <input type="number" name="no_telp" value="{{ old('no_telp', $profil->no_telp ?? '') }}" class="form-control"  required oninvalid="this.setCustomValidity('Data tidak boleh kosong')" oninput="this.setCustomValidity('')">
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" value="{{ old('email', $profil->email ?? '') }}" class="form-control" required>
+                <input type="email" name="email" value="{{ old('email', $profil->email ?? '') }}" class="form-control" required oninvalid="this.setCustomValidity('Data tidak boleh kosong')" oninput="this.setCustomValidity('')">
             </div> 
 
             <button type="submit" class="btn btn-primary float-right">Simpan</button>

@@ -44,7 +44,7 @@
   </div>
   
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+  
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -52,20 +52,15 @@
  
     </ul>
 
-    <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-    
    
-      <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa-solid fa-caret-down"></i>
         
         </a>
         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-          {{-- <span class="dropdown-item dropdown-header">User</span> --}}
-          {{-- <div class="dropdown-divider"></div> --}}
+
         
           <div class="dropdown-divider"></div>
           <a href="{{url('logout')}}" class="dropdown-item dropdown-footer">Keluar</a>
@@ -116,7 +111,7 @@
                with font-awesome or any other icon font library -->
           
           <li class="nav-item">
-            <a href="{{url('/admin')}}" class="nav-link">
+            <a href="{{url('/dashboard')}}" class="nav-link">
               {{-- <i class="nav-icon fas fa-th"></i> --}}
               <i class="nav-icon fas fa-tachometer-alt nav-iocn"></i>
               <p>
