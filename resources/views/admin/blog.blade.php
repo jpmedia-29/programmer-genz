@@ -28,7 +28,7 @@
                             <td>{{$item->judul_blog}}</td>
                             <td>
                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{url('delete_blog/'.$item->id_blog)}}" method="POST">
-                                    <a href="" class="btn btn-sm btn-primary">EDIT</a>
+                                    <a href="{{url('edit_blog/'.$item->id_blog)}}" class="btn btn-sm btn-primary">EDIT</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

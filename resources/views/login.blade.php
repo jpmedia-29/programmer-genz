@@ -7,17 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Programmer Gen - Z</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="/style.css">
 
     <style>
-        /* Sign in form styles */
+      
         #logreg-forms {
             width: 412px;
             margin: 10vh auto;
@@ -126,7 +122,6 @@
         </div>
         @endif
 
-        <!-- Login Form -->
         <form class="form-signin" method="POST" action="{{ url('aksi_login') }}">
             @csrf
             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;">Login Admin</h1>
@@ -134,13 +129,12 @@
             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
             <input type="password" id="password" name="password" class="form-control mt-3" placeholder="Password" required>
 
-            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Login Admin</button>
+            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
             <hr>
         </form>
     </div>
 
- 
-    <!-- jQuery and Bootstrap JS -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

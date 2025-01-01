@@ -9,15 +9,12 @@
         <h3 class="card-title">Data About</h3>
     </div>
         <div class="card-body">
-           <form method="POST" action="" enctype="multipart/form-data">
+           <form method="POST" action="{{url('updateAbout')}}" enctype="multipart/form-data">
             @csrf
-           
-     
             <div class="form-group">
-                <label for="alamat">About</label>
-                <textarea name="alamat" class="form-control" id="" cols="30" rows="10"></textarea>
+                <label for="deskripsi">About</label>
+                <textarea name="deskripsi" class="form-control" id="summernote" cols="30" rows="10" required oninvalid="this.setCustomValidity('Deskripsi Harus Diisi')" oninput="this.setCustomValidity('')">{{$about->deskripsi}}</textarea>
             </div>
-         
             <button type="submit" class="btn btn-primary float-right">Simpan</button>
          </form>
         </div>

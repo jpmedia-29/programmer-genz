@@ -13,45 +13,23 @@ background-repeat: no-repeat;">
 </div>
 <div class="container">
     <div class="row">
+
+        @foreach ($modul as $item)
+            
+       
         <div class="col-md-4">
         <div class="card mt-4 mb-4" style="width: 18rem; float: left; margin: 4px;">
             <img src="gambar/laravel.webp" class="card-img-top" alt="">
             <div class="card-body">
-                <h5 class="card-title">Kelas Laravel</h5>
+                <h5 class="card-title">{{$item->nama_modul}}</h5>
 
                 <a href="#" class="btn btn-danger">Ikuti Kelas</a>
             </div>
         </div>
         </div>
-        <div class="col-md-4">
-        <div class="card mt-4 mb-4" style="width: 18rem; float: left; margin: 4px;">
-            <img src="gambar/laravel.webp" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Kelas JavaScript</h5>
 
-                <a href="#" class="btn btn-danger">Ikuti Kelas</a>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-        <div class="card mt-4 mb-4" style="width: 18rem; float: left; margin: 4px;">
-            <img src="gambar/laravel.webp" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Kelas PHP</h5>
-
-                <a href="#" class="btn btn-danger">Ikuti Kelas</a>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-        <div class="card mt-4 mb-4" style="width: 18rem; float: left; margin: 4px;">
-            <img src="gambar/laravel.webp" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Kelas MySQL</h5>
-
-                <a href="#" class="btn btn-danger">Ikuti Kelas</a>
-            </div>
-        </div>
+        @endforeach
+    
 
     </div>
     </div>

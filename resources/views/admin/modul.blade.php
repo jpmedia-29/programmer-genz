@@ -16,6 +16,7 @@
                 <tr>
                     <th>#</th>
                     <th>Nama Modul</th>
+                    <th>Foto</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -24,6 +25,13 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->nama_modul }}</td>
+                        <td>
+                            @if($item->foto)
+                                <img src="{{ asset('storage/' . $item->foto) }}" alt="Foto Modul" style="max-width: 100px;">
+                            @else
+                                <span class="text-muted">Tidak ada foto</span>
+                            @endif
+                        </td>
                         <td>
                             <!-- Tombol Edit -->
                             <a href="{{ url('edit_modul/' . $item->id_modul) }}" class="btn btn-sm btn-primary">EDIT</a>
